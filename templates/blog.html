@@ -1,0 +1,14 @@
+{% include 'tekken_game/header.html' %}
+{% for i in post %}
+<h1>{{i.title}}</h1>
+<p>{{i.description}}</p>
+<img src="{{i.image.url}}" alt="">
+<p>{{i.created_at}}</p>
+{% endfor %}
+*****************************************************************
+{% for j in tel %}
+<h1>{{j.title}}</h1>
+<p>{{i.description}}</p>
+{% endfor %}
+
+{% include 'tekken_game/footer.html' %}

@@ -1,0 +1,23 @@
+{% include 'tekken_game/header.html' %}
+<img src="{{person_id.image}}" alt="">
+<h1>{{person_id.name}}</h1>
+<p>{{person_id.email}}</p>
+<p>{{person_id.description}}</p>
+<p>{{person_id.age}}</p>
+<p>{{person_id.capabilities}}</p>
+<p>{{person_id.sport}}</p>
+<ul>
+    {% for i in person_id.tekken_reviews.all %}
+        <li>
+            <h2>{{i.text}}</h2>
+        </li>
+    {% endfor %}
+</ul>
+<iframe src="{{person_id.video_url}}" frameborder="2" width="640" height="420"></iframe>
+<hr>
+    <button><a href="/persons_list/{{person_id.id}}/update/">Изменить персонажа</a></button>
+    <button><a href="/persons_list/{{person_id.id}}/delete/">Удалить персонажа</a></button>
+<hr>
+</body>
+</html>
+{% include 'tekken_game/footer.html' %}
