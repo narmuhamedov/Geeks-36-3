@@ -12,3 +12,4 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = models.Review
         fields = '__all__'
+

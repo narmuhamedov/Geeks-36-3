@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'tekken_persons',
+    'parser_app',
 ]
 
 MIDDLEWARE = [

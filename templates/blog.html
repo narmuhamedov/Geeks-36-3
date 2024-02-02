@@ -1,14 +1,28 @@
 {% include 'tekken_game/header.html' %}
-{% for i in post %}
-<h1>{{i.title}}</h1>
-<p>{{i.description}}</p>
-<img src="{{i.image.url}}" alt="">
-<p>{{i.created_at}}</p>
-{% endfor %}
-*****************************************************************
-{% for j in tel %}
-<h1>{{j.title}}</h1>
-<p>{{i.description}}</p>
-{% endfor %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            {% for i in post %}
+                <article class="mb-5 border-bottom">
+                    <h1 class="display-4">{{ i.title }}</h1>
+                    <p class="lead">{{ i.description }}</p>
+                    <img src="{{ i.image.url }}" alt="{{ i.title }}" class="img-fluid rounded">
+                    <p class="text-muted mt-3">{{ i.created_at }}</p>
+                </article>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+              {% for j in tel %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ j.title }}</h5>
+                    <p class="card-text">{{ j.description }}</p>
+                </div>
+            </div>
+             {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% include 'tekken_game/footer.html' %}

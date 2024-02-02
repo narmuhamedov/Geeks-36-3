@@ -1,10 +1,103 @@
-  .horizont-container {
+.horizont-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.horizont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  width: calc(25% - 20px);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.card-text {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+.detail-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.detail-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.detail-info {
+    margin-bottom: 8px;
+}
+
+.review-list {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-video {
+    margin-top: 20px;
+}
+
+.button-container {
     display: flex;
     justify-content: center;
-  }
+    margin-top: 20px;
+}
 
-  .horizont {
-    display: flex;
-    gap: 20px;
-    text-align: center;
-  }
+.update-button,
+.delete-button {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.update-button:hover,
+.delete-button:hover {
+    background-color: #0056b3;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+}

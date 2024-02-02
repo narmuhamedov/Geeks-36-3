@@ -1,19 +1,21 @@
 {% load static %}
 {% include 'tekken_game/header.html' %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 <div class="horizont-container">
   <div class="horizont">
-    {% for i in persons %}
-      <div class="card" style="width: 18rem;">
-        <img src="{{i.image}}" class="card-img-top" alt="...">
+    {% for person in persons %}
+      <div class="card">
+        <img src="{{ person.image }}" class="card-img-top" alt="{{ person.name }}">
         <div class="card-body">
-          <h5 class="card-title">{{i.name}}</h5>
-          <p class="card-text">{{i.sport}}</p>
-          <a href="/persons_list/{{i.id}}/" class="btn btn-primary">Подробнее</a>
+          <h5 class="card-title">{{ person.name }}</h5>
+          <p class="card-text">{{ person.sport }}</p>
+          <p class="card-text">Количество отзывов: {{ person.total_reviews }}</p>
+          <a href="/persons_list/{{ person.id }}/" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
     {% endfor %}
   </div>
 </div>
-{% include 'tekken_game/footer.html' %}
 
+{% include 'tekken_game/footer.html' %}

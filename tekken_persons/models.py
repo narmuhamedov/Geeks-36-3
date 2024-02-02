@@ -20,12 +20,16 @@ class PersonGame(models.Model):
     sport = models.CharField(max_length=100, choices=SPORT, verbose_name='Выберите спорт персонажа')
     video_url = models.URLField(verbose_name='Вставьте ссылку с ютуб')
 
+
     def __str__(self):
         return f'{self.name}-{self.sport}'
 
     class Meta:
         verbose_name = 'Персонажа'
         verbose_name_plural = 'Персонажи'
+
+    def total_reviews(self):
+        return self.tekken_reviews.count()
 
 
 class Review(models.Model):

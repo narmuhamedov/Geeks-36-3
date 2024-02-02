@@ -1,23 +1,37 @@
+{% load static %}
 {% include 'tekken_game/header.html' %}
-<img src="{{person_id.image}}" alt="">
-<h1>{{person_id.name}}</h1>
-<p>{{person_id.email}}</p>
-<p>{{person_id.description}}</p>
-<p>{{person_id.age}}</p>
-<p>{{person_id.capabilities}}</p>
-<p>{{person_id.sport}}</p>
-<ul>
-    {% for i in person_id.tekken_reviews.all %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="detail-container">
+    <img src="{{ person_id.image }}" alt="{{ person_id.name }}" class="detail-image">
+    <h1>{{ person_id.name }}</h1>
+    <p class="detail-info">{{ person_id.email }}</p>
+    <p class="detail-info">{{ person_id.description }}</p>
+    <p class="detail-info">Age: {{ person_id.age }}</p>
+    <p class="detail-info">Capabilities: {{ person_id.capabilities }}</p>
+    <p class="detail-info">Sport: {{ person_id.sport }}</p>
+
+
+<ul class="review-list">
+    {% for review in person_id.tekken_reviews.all %}
         <li>
-            <h2>{{i.text}}</h2>
+            <h2>{{ review.text }}</h2>
         </li>
     {% endfor %}
 </ul>
-<iframe src="{{person_id.video_url}}" frameborder="2" width="640" height="420"></iframe>
-<hr>
-    <button><a href="/persons_list/{{person_id.id}}/update/">Изменить персонажа</a></button>
-    <button><a href="/persons_list/{{person_id.id}}/delete/">Удалить персонажа</a></button>
-<hr>
-</body>
-</html>
+
+
+    <iframe src="{{ person_id.video_url }}" frameborder="2" width="640" height="420" class="detail-video"></iframe>
+
+    <hr>
+
+    <div class="button-container">
+        <button class="update-button"><a href="/persons_list/{{ person_id.id }}/update/">Изменить персонажа</a></button>
+        <button class="delete-button"><a href="/persons_list/{{ person_id.id }}/delete/">Удалить персонажа</a></button>
+    </div>
+
+    <hr>
+</div>
+
+
+
 {% include 'tekken_game/footer.html' %}
