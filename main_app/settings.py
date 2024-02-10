@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'blog',
     'tekken_persons',
     'parser_app',
+    'custom_users',
+    'product',
 ]
 
 MIDDLEWARE = [

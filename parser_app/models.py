@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class ManasFims(models.Model):
     title = models.CharField(max_length=300)
     time = models.CharField(max_length=100)

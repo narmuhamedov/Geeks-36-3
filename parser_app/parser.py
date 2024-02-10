@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from django.views.decorators.csrf import csrf_exempt
 
 URL = "http://www.manascinema.com/"
 
@@ -9,15 +8,14 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
 }
 
+
 # start
-@csrf_exempt
 def get_html(url, params=''):
-    request = requests.get(url, headers=HEADERS, params=params)
-    return request
+    response = requests.get(url, headers=HEADERS, params=params)
+    return response
 
 
 # get data
-@csrf_exempt
 def get_data(html):
     bs = BeautifulSoup(html, 'html.parser')
     items = bs.find_all('div', class_='short_movie_info')
@@ -30,17 +28,19 @@ def get_data(html):
         })
     return manas_lst
 
-#parsing
-@csrf_exempt
+
+# parsing
 def parser():
-    html = get_html(URL)
-    if html.status_code == 200:
+    response = get_html(URL)
+    if response.status_code == 200:
         manas_lst_all_films = []
-        for page in range(0,1):
-            html = get_html(f'http://www.manascinema.com/movies', params=page)
-            manas_lst_all_films.extend(get_data(html.text))
-            return manas_lst_all_films
+        for page in range(0, 1):
+            response = get_html(f'http://www.manascinema.com/movies', params=page)
+            manas_lst_all_films.extend(get_data(response.text))
+        return manas_lst_all_films
     else:
         raise Exception('error in parse')
 
-print(parser())
+
+if __name__ == "__main__":
+    print(parser())
